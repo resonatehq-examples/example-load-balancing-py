@@ -44,7 +44,7 @@ Run as many instances of that worker / microservice that you need.
 Then, when you need to call a function on that worker / microservice you use Resonate's RPC API, targeting any worker in that group.
 
 ```python
-result = resonate.options(target="poll://any@worker-group").rpc(promise_id, "function_name",  promise_id, params)
+result = resonate.options(target="poll://any@worker-group").rpc(promise_id, "function_name", params)
 ```
 
 Resonate handles the rest!
