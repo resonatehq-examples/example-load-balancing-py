@@ -2,7 +2,7 @@
 
 ![load balancing terminal visualization gif](./load-balancing-example.gif)
 
-This example showcases Resonate's automatic load balancing capabilities.
+This example showcases Resonate's automatic service discovery and load balancing capabilities.
 
 ## The problem
 
@@ -15,18 +15,18 @@ There are generally two ways to solve for this:
 
 There is an upper limit to the first option, and it is a single point of failure if there is only ever one instance running.
 
-Therefore, the second option tends to be the desired approach, because in theory you can scale the number of instances indefinitely. However, this introduces another problem: load balancing — that is, knowing which worker / application node has the capacity to take more work.
+Therefore, the second option tends to be the desired approach, because in theory you can scale the number of instances indefinitely. However, this introduces another problem: service discovery and load balancing — that is, knowing which worker / application node has the capacity to take more work.
 
 But not just that, what happens if a worker / microservice instance crashes after starting claiming work and starting to make progress it.
 
-How does the system know it needs to recover that work somewhere else?
+How does the system know it needs to recover that work somewhere else, and where to recover it?
 
-These a common distributed system engineering issues that developers are forced to solve again and again.
-And often they are forced to mix messy load balancing and recovery logic in with their application/business level logic, which makes for a very poor developer experience.
+These are distributed system engineering issues that developers are commonly forced to solve again and again.
+And often they are forced to mix messy service discovery, load balancing, and recovery logic in with their application/business level logic, which makes for a very poor developer experience.
 
 ## The solution
 
-Resonate has built-in load balancing and recovery and provides the developer with a simple RPC API and target schema.
+Resonate has built-in service discovery, load balancing, and recovery. And it provides the developer with a simple RPC API and target schema to make use of these features.
 
 In your worker / microservice you can just specify the group that it belongs to:
 
@@ -49,7 +49,7 @@ result = resonate.options(target="poll://any@worker-group").rpc(promise_id, "fun
 
 Resonate handles the rest!
 
-You get automatic load balancing and automatic recovery for all the workers in that group.
+You get automatic service discovery, load balancing, and recovery for all the workers in that group.
 
 ## About this example
 

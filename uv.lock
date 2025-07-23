@@ -55,7 +55,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "resonate-sdk", specifier = ">=0.5.6" }]
+requires-dist = [{ name = "resonate-sdk", specifier = ">=0.6.0" }]
 
 [[package]]
 name = "idna"
@@ -113,16 +113,16 @@ wheels = [
 
 [[package]]
 name = "resonate-sdk"
-version = "0.5.6"
+version = "0.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "croniter" },
     { name = "jsonpickle" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/3f/28abc79712b736f6bf399d75736032c1d5a281b1a5779d91bfe54c0e3b98/resonate_sdk-0.5.6.tar.gz", hash = "sha256:74ae71e89698f5fe94c066a27f88eaef449179db7c6b7e2d41de40cfb4dbdf4f", size = 90176, upload-time = "2025-07-09T20:23:22.348Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/09/3f/27f0bdccb210a01e5c546293fccf0f80a155875baa66a214242190249ceb/resonate_sdk-0.6.0.tar.gz", hash = "sha256:06518110a0d86444aead6b9cde5f460b3fb6043090dd9b4649d7db4c84bf9c2f", size = 91648, upload-time = "2025-07-23T16:42:42.533Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d9/24/cced20cd682b4e59f544d8987fc7691f302f023685df28594e53359ede8b/resonate_sdk-0.5.6-py3-none-any.whl", hash = "sha256:7c64fcaec0823bad485fe6894bdfbe099628d50b3a7030a262d2b2071dafa732", size = 67985, upload-time = "2025-07-09T20:23:21.088Z" },
+    { url = "https://files.pythonhosted.org/packages/39/a8/f1fc653d7ac1e6334bbb6d0fb64dc56de455fc48021fb954adf96e85bfd6/resonate_sdk-0.6.0-py3-none-any.whl", hash = "sha256:b16c84af735c821f9d80ec36d30a864974a5684fad36e85c5deca747d665939d", size = 69396, upload-time = "2025-07-23T16:42:41.111Z" },
 ]
 
 [[package]]

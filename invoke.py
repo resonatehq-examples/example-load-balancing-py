@@ -14,7 +14,7 @@ def main():
     # Generate a random promise ID
     promise_id = str(uuid4())
     # Invoke compute_something() on the worker group
-    _ = resonate.options(target="poll://any@worker-group").rpc(promise_id, "compute_something",  promise_id, compute_cost)
+    _ = resonate.options(target="poll://any@worker-group").begin_rpc(promise_id, "compute_something",  promise_id, compute_cost)
 
 
 if __name__ == "__main__":
