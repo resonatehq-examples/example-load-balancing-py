@@ -10,8 +10,8 @@ resonate = Resonate.remote(
 # Register the function with Resonate
 @resonate.register
 def compute_something(_, id, compute_cost):
-    print(f"starting computation {id}")
     """A function that simulates a computation that takes some time."""
+    print(f"starting computation {id}")
     # Using time.sleep(), instead of ctx.sleep(), blocks the thread, simulating a time-consuming task
     time.sleep(compute_cost)
     print(f"computed something that cost {compute_cost} seconds")
