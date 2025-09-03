@@ -9,3 +9,4 @@ wheels/
 # Virtual environments
 .venv
 resonate.db
+uv.lock

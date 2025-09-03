@@ -1,8 +1,16 @@
-# Worker load balancing | Resonate example application
+![resonate example application readme banner](./assets/resonate-example-app-readme-banner.png)
 
-![load balancing terminal visualization gif](./load-balancing-example.gif)
+# Worker load balancing
+
+![load balancing banner](./assets/echo-load-balancing-banner.png)
+
+**Resonate Python SDK**
 
 This example showcases Resonate's automatic service discovery and load balancing capabilities.
+
+Instructions on [How to run this example](#how-to-run-this-example) are below.
+
+![load balancing terminal visualization gif](./assets/load-balancing-example.gif)
 
 ## The problem
 
