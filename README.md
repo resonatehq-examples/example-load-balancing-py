@@ -1,8 +1,6 @@
-![resonate example application readme banner](./assets/resonate-example-app-readme-banner.png)
+![load balancing banner](./assets/echo-load-balancing-banner.png)
 
 # Worker load balancing
-
-![load balancing banner](./assets/echo-load-balancing-banner.png)
 
 **Resonate Python SDK**
 
