@@ -64,7 +64,7 @@ This example demonstrates Resonate's built-in load balancing and recovery capabi
 As the operator, you will run multiple instances of a worker (`worker.py`).
 The worker contains a single function `compute_something()`.
 
-You will then use the invoke script (`invoke.py`) to start many `compute_somthing()` executions.
+You will then use the invoke script (`invoke.py`) to start many `compute_something()` executions.
 
 As you invoke more and more executions, you will see them start to spread across the multiple instances of workers.
 
@@ -87,7 +87,7 @@ Run the Resonate Server:
 # install the server if you haven't yet
 brew install resonatehq/tap/resonate
 # start the server
-resonate serve
+resonate dev
 ```
 
 Run multiple worker instances.
