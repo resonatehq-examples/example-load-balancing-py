@@ -14,7 +14,7 @@ Instructions on [How to run this example](#how-to-run-this-example) are below.
 
 A single worker or microservice instance will eventually become overwhelmed if there is too much work sent its way in a short amount of time.
 
-There are generally two ways to solve for this:
+There are generally two ways to solve this:
 
 1. Increase the compute capability for the single worker / microservice.
 2. Increase the number of worker / microservice instances.
@@ -23,12 +23,12 @@ There is an upper limit to the first option, and it is a single point of failure
 
 Therefore, the second option tends to be the desired approach, because in theory you can scale the number of instances indefinitely. However, this introduces another problem: service discovery and load balancing — that is, knowing which worker / application node has the capacity to take more work.
 
-But not just that, what happens if a worker / microservice instance crashes after starting claiming work and starting to make progress it.
+But beyond that, what happens if a worker / microservice instance crashes after starting work and making progress on it.
 
 How does the system know it needs to recover that work somewhere else, and where to recover it?
 
 These are distributed system engineering issues that developers are commonly forced to solve again and again.
-And often they are forced to mix messy service discovery, load balancing, and recovery logic in with their application/business level logic, which makes for a very poor developer experience.
+And often they are forced to mix messy service discovery, load balancing, and recovery logic into their application or business logic, which makes for a very poor developer experience.
 
 ## The solution
 
@@ -45,7 +45,7 @@ resonate = Resonate.remote(
 )
 ```
 
-Run as many instances of that worker / microservice that you need.
+Run as many instances of that worker / microservice as you need.
 
 Then, when you need to call a function on that worker / microservice you use Resonate's RPC API, targeting any worker in that group.
 
@@ -66,7 +66,7 @@ The worker contains a single function `compute_something()`.
 
 You will then use the invoke script (`invoke.py`) to start many `compute_something()` executions.
 
-As you invoke more and more executions, you will see them start to spread across the multiple instances of workers.
+As you invoke more and more executions, you will see them start to spread across the multiple worker instances.
 
 If you kill one of the workers while it is in the middle of handling executions, you will see the executions recover on another worker.
 
@@ -74,7 +74,7 @@ As a developer, if you look at the code on the worker, you will notice that it i
 
 And if you look at the code on the invoke script, you will notice that the invocation of `compute_something()` targets any worker in the `worker_group`.
 
-This example is meant to show that with minimal developer and operator overhead, you get load balancing and recovery out-of-the-box with Resonate.
+This example is meant to show that with minimal developer and operator overhead, you get load balancing and recovery out of the box with Resonate.
 
 ## How to run this example
 
