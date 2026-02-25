@@ -104,3 +104,9 @@ We recommend running it at least a dozen times to get the best demonstration.
 ```shell
 uv run invoke.py
 ```
+
+## Learn More
+
+- [Resonate Documentation](https://docs.resonatehq.io)
+- [Python SDK Guide](https://docs.resonatehq.io/develop/python)
+- [Worker Groups and Load Balancing](https://docs.resonatehq.io/concepts/targets)
