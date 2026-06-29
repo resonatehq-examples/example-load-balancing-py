@@ -1,30 +1,33 @@
-from resonate import Resonate
-from threading import Event
+from __future__ import annotations
+
+import asyncio
+import os
 import time
+from typing import TYPE_CHECKING
 
-# Initialize an instance of Resonate as a worker in "worker-group"
-resonate = Resonate.remote(
-    group="worker-group",
-)
+from resonate.resonate import Resonate
 
-# Register the function with Resonate
-@resonate.register
-def compute_something(_, id, compute_cost):
+if TYPE_CHECKING:
+    from resonate.context import Context
+
+
+async def compute_something(ctx: Context, id: str, compute_cost: int) -> None:
     """A function that simulates a computation that takes some time."""
     print(f"starting computation {id}")
     # Using time.sleep(), instead of ctx.sleep(), blocks the thread, simulating a time-consuming task
     time.sleep(compute_cost)
     print(f"computed something that cost {compute_cost} seconds")
-    return
 
 
-def main():
-    # Explicitly start Resonate instance threads
-    resonate.start()
-    print("worker running...")
-    # Keep the main thread alive to allow async tasks to complete
-    Event().wait() 
+async def main() -> None:
+    r = Resonate(
+        url=os.environ.get("RESONATE_URL", "http://localhost:8001"),
+        group="worker-group",
+    )
+    r.register(compute_something)
+    print("worker running...", flush=True)
+    await asyncio.Event().wait()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
