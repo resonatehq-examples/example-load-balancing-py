@@ -49,11 +49,12 @@ Resonate has built-in service discovery, load balancing, and recovery. And it pr
 In your worker / microservice you can just specify the group that it belongs to:
 
 ```python
-from resonate import Resonate
+from resonate.resonate import Resonate
+import os
 
-resonate = Resonate.remote(
-    group="worker-group"
-    # ...
+r = Resonate(
+    url=os.environ.get("RESONATE_URL", "http://localhost:8001"),
+    group="worker-group",
 )
 ```
 
@@ -62,7 +63,8 @@ Run as many instances of that worker / microservice as you need.
 Then, when you need to call a function on that worker / microservice you use Resonate's RPC API, targeting any worker in that group.
 
 ```python
-result = resonate.options(target="poll://any@worker-group").rpc(promise_id, "function_name", params)
+handle = r.options(target="worker-group").rpc(promise_id, "function_name", params)
+result = await handle.result()
 ```
 
 Resonate handles the rest!
